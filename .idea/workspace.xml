@@ -110,7 +110,7 @@
       <recent name="E:\micronaut-kotlin-compose\luck-compose-desktop" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.luck-compose-desktop [packageMsi]">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="luck-compose-desktop [packageMsi]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -159,8 +159,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.luck-compose-desktop [packageMsi]" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.luck-compose-desktop [packageMsi]" />
       </list>
     </recent_temporary>
   </component>
