@@ -24,65 +24,15 @@ import androidx.compose.ui.window.application
 import org.json.JSONException
 import org.skyscreamer.jsonassert.JSONCompare
 import org.skyscreamer.jsonassert.JSONCompareMode
+import ui.JsonScreen
 
 @Composable
 @Preview
 fun App() {
-    var result by remember { mutableStateOf("") }
-    var json1 by remember { mutableStateOf("") }
-    var json2 by remember { mutableStateOf("") }
-
-    MaterialTheme {
-        Column (modifier = Modifier.fillMaxWidth()){
-            Row (modifier = Modifier.padding(16.dp)){
-                OutlinedTextField(
-                    value = json1,
-                    onValueChange = { json1 = it },
-                    label = { Text("JSON 1") },
-                    modifier = Modifier.fillMaxWidth(0.5F).fillMaxHeight(0.75F).padding(end = 8.dp)
-                )
-                OutlinedTextField(
-                    value = json2,
-                    onValueChange = { json2 = it },
-                    label = { Text("JSON 2") },
-                    modifier = Modifier.fillMaxWidth().fillMaxHeight(0.75F).padding(end = 8.dp)
-                )
-            }
-            Row (modifier = Modifier.fillMaxWidth()
-                .align(Alignment.CenterHorizontally)
-                ) {
-                Image(painter = BitmapPainter(useResource("launcher/icon.png", ::loadImageBitmap)),"Test")
-
-                    Button(onClick = {
-                        result = compareJSON(json1, json2)
-                    },modifier = Modifier.wrapContentSize()
-                    ) {
-                        Text("对比")
-                    }
-            }
-            if (result.isNotBlank()) {
-                Row {
-                    OutlinedTextField(
-                        value = result,
-                        readOnly = true,
-                        onValueChange = {},
-                        label = { Text("结果：") },
-                        modifier = Modifier.fillMaxWidth()
-                    )
-                }
-            }
-        }
-    }
+    JsonScreen()
 }
 
-fun compareJSON(json1: String, json2: String): String {
-    return try {
-        val comparison = JSONCompare.compareJSON(json1, json2, JSONCompareMode.STRICT)
-        if (comparison.passed()) "✅ Same JSON" else "❗ Differences :\n ${comparison.message}"
-    } catch (e: JSONException) {
-        "❌ Format Error"
-    }
-}
+
 
 
 
